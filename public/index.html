@@ -4759,20 +4759,25 @@
                 if (!ss || !ss.classList.contains("active")) return;
                 if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                     if (currentDeck && currentDeck.slides && slideshowIndex < currentDeck.slides.length - 1) {
                         renderSlideshowSlide(slideshowIndex + 1);
                     }
                 } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                     if (slideshowIndex > 0) {
                         renderSlideshowSlide(slideshowIndex - 1);
                     }
                 } else if (e.key === "Escape") {
+                    e.stopImmediatePropagation();
                     closeSlideshow();
                 }
             });
 
             function renderDeckPreview(result, fallbackTitle) {
+                // Buka modal (dipanggil dari generate maupun dari kartu riwayat)
+                agentModal.classList.add('open');
                 currentDeck = result.deck;
                 currentTopic = fallbackTitle;
                 currentLanguage = document.getElementById("select-language").value;
