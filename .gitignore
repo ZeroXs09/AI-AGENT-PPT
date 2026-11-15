@@ -1,5 +1,33 @@
+# Dependencies
 node_modules/
-generated/
+
+# Environment files & Secrets
 .env
-.hallmark/
+.env.*
+!.env.example
+
+# Generated outputs & binaries
+generated/
+dist/
+build/
+*.tmp
+*.bak
+
+# Logs
 *.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor local settings
+.vscode/
+.idea/
+*.local.json
+.claude/settings.local.json
+.hallmark/
+.zcode/
